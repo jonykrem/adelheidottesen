@@ -1,21 +1,20 @@
 <script lang="ts">
     import GalleryGrid from "$lib/components/GalleryGrid.svelte";
-    import { browser } from "$app/environment";
+    import { goto } from "$app/navigation";
     export let data: {
         artworks: any[];
         category?: string;
         categories: string[];
     };
-    $: selected = browser
-        ? new URLSearchParams(window.location.search).get("category") || ""
-        : "";
+    let selected: string = data.category ?? "";
     $: visible = selected
         ? data.artworks.filter((a) => a.category === selected)
         : data.artworks;
     function setCategory(cat?: string) {
+        selected = cat ?? "";
         const base = "/gallery";
         const url = cat ? `${base}?category=${encodeURIComponent(cat)}` : base;
-        window.location.href = url;
+        goto(url, { replaceState: false, keepFocus: true, noScroll: true });
     }
 </script>
 
@@ -35,6 +34,7 @@
             >
             <select
                 id="filter"
+                bind:value={selected}
                 on:change={(e) =>
                     setCategory(
                         (e.target as HTMLSelectElement).value || undefined,
@@ -42,9 +42,7 @@
             >
                 <option value="">All</option>
                 {#each data.categories as cat}
-                    <option value={cat} selected={data.category === cat}
-                        >{cat}</option
-                    >
+                    <option value={cat}>{cat}</option>
                 {/each}
             </select>
         </div>
