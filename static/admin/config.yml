@@ -2,6 +2,7 @@ backend:
   name: github
   repo: jonykrem/adelheidottesen
   branch: main
+  auth_type: oauth
   client_id: Ov23liKj37S04nMPavSo
 
 local_backend: true
