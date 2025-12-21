@@ -1,1 +1,0 @@
-import{q as o,v as u,a6 as p,h as t,p as _,C as g,m as i,A as l,o as d,k as m}from"./BmpvvxTx.js";function E(n,r){let s=null,f=t;var a;if(t){s=m;for(var e=_(document.head);e!==null&&(e.nodeType!==g||e.data!==n);)e=i(e);if(e===null)l(!1);else{var y=i(e);e.remove(),d(y)}}t||(a=document.head.appendChild(o()));try{u(()=>r(a),p)}finally{f&&(l(!0),d(s))}}export{E as h};

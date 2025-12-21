@@ -1,5 +1,7 @@
 import { sanity } from "$lib/sanity/client";
 
+export const prerender = false;
+
 export async function load({ url }) {
     const category = url.searchParams.get('category');
 
