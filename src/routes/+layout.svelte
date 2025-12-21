@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { page } from "$app/state";
+    import { page } from "$app/stores";
     import type { PageData } from "./$types";
     export let data: PageData;
-    $: currentPath = page.url.pathname;
 </script>
 
 <div class="container">
@@ -11,28 +10,33 @@
             {data?.siteTitle ?? "Artist Name"}
         </h1>
         <nav>
-            <a href="/" aria-current={currentPath === "/" ? "page" : undefined}
+            <a
+                href="/"
+                aria-current={$page.url.pathname === "/" ? "page" : undefined}
                 >Home</a
             >
             <a
                 href="/gallery"
-                aria-current={currentPath.startsWith("/gallery")
+                aria-current={$page.url.pathname.startsWith("/gallery")
                     ? "page"
                     : undefined}>Gallery</a
             >
             <a
                 href="/about"
-                aria-current={currentPath === "/about" ? "page" : undefined}
-                >About</a
+                aria-current={$page.url.pathname === "/about"
+                    ? "page"
+                    : undefined}>About</a
             >
             <a
                 href="/cv"
-                aria-current={currentPath === "/cv" ? "page" : undefined}>CV</a
+                aria-current={$page.url.pathname === "/cv" ? "page" : undefined}
+                >CV</a
             >
             <a
                 href="/contact"
-                aria-current={currentPath === "/contact" ? "page" : undefined}
-                >Contact</a
+                aria-current={$page.url.pathname === "/contact"
+                    ? "page"
+                    : undefined}>Contact</a
             >
         </nav>
     </header>
