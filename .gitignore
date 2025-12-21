@@ -1,0 +1,19 @@
+# Node
+node_modules/
+npm-debug.log*
+pnpm-lock.yaml
+
+# SvelteKit / Vite
+.svelte-kit/
+.build/
+dist/
+
+# Env
+.env
+.env.*
+
+# OS
+.DS_Store
+
+# CMS local config
+/.decap-cms/

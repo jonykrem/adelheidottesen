@@ -1,0 +1,44 @@
+backend:
+  name: github
+  repo: your-github-username/your-repo-name
+  branch: main
+  # Enable editorial workflow (PRs for drafts)
+  publish_mode: editorial_workflow
+
+media_folder: "static/images/artworks"
+public_folder: "/images/artworks"
+
+collections:
+  - name: artworks
+    label: Artworks
+    folder: "src/content/artworks"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Year, name: year, widget: number }
+      - { label: Medium, name: medium, widget: string }
+      - { label: Dimensions, name: dimensions, widget: string }
+      - { label: Category, name: category, widget: string }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Images, name: images, widget: list, 
+          field: { label: Image, name: image, widget: image, choose_url: false } }
+      - { label: Description, name: body, widget: markdown, required: false }
+
+  - name: pages
+    label: Pages
+    files:
+      - file: "src/content/pages/about.md"
+        label: About
+        name: about
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }
+      - file: "src/content/pages/cv.md"
+        label: CV
+        name: cv
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }
