@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: jnxrm/adelheidottesen
+  repo: jonykrem/adelheidottesen
   branch: main
   # Enable editorial workflow (PRs for drafts)
   publish_mode: editorial_workflow
