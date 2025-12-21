@@ -22,7 +22,7 @@
     {#if a.images && a.images.length}
         {#each a.images as img}
             <img
-                src={`/images/artworks/${img}`}
+                src={img}
                 alt={a.title}
                 loading="lazy"
                 decoding="async"

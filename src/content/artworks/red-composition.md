@@ -7,7 +7,7 @@ dimensions: "60 × 60 cm"
 category: "Painting"
 featured: false
 images:
-  - red-1.jpg
+  - /images/artworks/red-1.jpg
 ---
 
 Geometric exploration focused on red hues and balance.

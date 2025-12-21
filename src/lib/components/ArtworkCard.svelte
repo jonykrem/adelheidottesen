@@ -13,10 +13,7 @@
 >
     <figure style="margin:0;">
         {#if images && images.length}
-            <ResponsiveImage
-                src={`/images/artworks/${images[0]}`}
-                alt={title}
-            />
+            <ResponsiveImage src={images[0]} alt={title} />
         {/if}
         <figcaption style="margin-top:0.5rem; font-size:0.9rem; color:#4b5563;">
             {title}{year ? `, ${year}` : ""}
