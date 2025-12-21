@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let src: string;
+    export let src: any;
     export let alt: string = "";
     export let sizes: string =
         "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";

@@ -1,19 +1,25 @@
 <script lang="ts">
     import ResponsiveImage from "./ResponsiveImage.svelte";
+    import { urlFor } from "$lib/sanity/image";
+
     export let title: string;
     export let slug: string;
     export let year: number;
-    export let images: string[] = [];
+    export let images: any[] = [];
+
+    $: imageUrl =
+        images && images.length ? urlFor(images[0]).width(1200).url() : "";
 </script>
 
 <a
     href={`/gallery/${slug}`}
     aria-label={title}
     style="text-decoration:none; color:inherit;"
+    data-sveltekit-preload-data="off"
 >
     <figure style="margin:0;">
-        {#if images && images.length}
-            <ResponsiveImage src={images[0]} alt={title} />
+        {#if imageUrl}
+            <ResponsiveImage src={imageUrl} alt={title} />
         {/if}
         <figcaption style="margin-top:0.5rem; font-size:0.9rem; color:#4b5563;">
             {title}{year ? `, ${year}` : ""}

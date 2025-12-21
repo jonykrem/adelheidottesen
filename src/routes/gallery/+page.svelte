@@ -1,8 +1,9 @@
 <script lang="ts">
     import GalleryGrid from "$lib/components/GalleryGrid.svelte";
     import { goto } from "$app/navigation";
+    import type { Artwork } from "$lib/utils/content";
     export let data: {
-        artworks: any[];
+        artworks: Artwork[];
         category?: string;
         categories: string[];
     };

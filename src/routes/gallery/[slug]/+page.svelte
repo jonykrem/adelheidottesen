@@ -1,5 +1,8 @@
 <script lang="ts">
-    export let data: { item: any };
+    import { urlFor } from "$lib/sanity/image";
+    import type { Artwork } from "$lib/utils/content";
+
+    export let data: { item: Artwork };
     const a = data.item;
 </script>
 
@@ -22,7 +25,7 @@
     {#if a.images && a.images.length}
         {#each a.images as img}
             <img
-                src={img}
+                src={urlFor(img).width(1200).url()}
                 alt={a.title}
                 loading="lazy"
                 decoding="async"

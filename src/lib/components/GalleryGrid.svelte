@@ -1,12 +1,7 @@
 <script lang="ts">
     import ArtworkCard from "./ArtworkCard.svelte";
-    export let items: Array<{
-        title: string;
-        slug: string;
-        year: number;
-        images: string[];
-        category?: string;
-    }>;
+    import type { Artwork } from "$lib/utils/content";
+    export let items: Artwork[];
 </script>
 
 <div class="grid">

@@ -1,6 +1,7 @@
 <script lang="ts">
     import GalleryGrid from "$lib/components/GalleryGrid.svelte";
-    export let data: { featured: any[] };
+    import type { Artwork } from "$lib/utils/content";
+    export let data: { featured: Artwork[] };
 </script>
 
 <svelte:head>
