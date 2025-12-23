@@ -4,18 +4,17 @@
     import type { Artwork } from "$lib/utils/content";
     export let data: {
         artworks: Artwork[];
-        category?: string;
         categories: string[];
     };
-    let selected: string = data.category ?? "";
+
+    let selected: string = "";
+
     $: visible = selected
         ? data.artworks.filter((a) => a.category === selected)
         : data.artworks;
+
     function setCategory(cat?: string) {
         selected = cat ?? "";
-        const base = "/gallery";
-        const url = cat ? `${base}?category=${encodeURIComponent(cat)}` : base;
-        goto(url, { replaceState: false, keepFocus: true, noScroll: true });
     }
 </script>
 

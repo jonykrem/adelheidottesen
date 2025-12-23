@@ -1,8 +1,6 @@
 import { getAllArtworks, getArtworkBySlug } from "$lib/utils/content.js";
 import { error } from "@sveltejs/kit";
 
-export const prerender = true;
-
 export async function entries() {
     const artworks = await getAllArtworks();
     return artworks.map(a => ({ slug: a.slug }));
