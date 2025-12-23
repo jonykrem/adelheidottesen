@@ -49,6 +49,7 @@
         --text: #111;
         --muted: #6b7280;
     }
+
     :global(html),
     :global(body) {
         background: var(--bg);
@@ -57,24 +58,51 @@
             Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         line-height: 1.6;
     }
+
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem 1rem;
     }
+
+    /* Mobile-first header layout */
     header {
         display: flex;
+        flex-direction: column;
         align-items: baseline;
-        justify-content: space-between;
         margin-bottom: 2rem;
     }
+
+    nav {
+        margin-top: 0.75rem;
+    }
+
     nav a {
-        margin-left: 1rem;
+        margin-right: 1rem;
         color: var(--muted);
         text-decoration: none;
     }
+
     nav a:hover,
     nav a[aria-current="page"] {
         color: var(--text);
+    }
+
+    /* Desktop layout */
+    @media (min-width: 768px) {
+        header {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav {
+            margin-top: 0;
+            margin-left: auto;
+        }
+
+        nav a {
+            margin-right: 0;
+            margin-left: 1.5rem;
+        }
     }
 </style>
