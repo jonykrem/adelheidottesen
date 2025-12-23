@@ -1,6 +1,5 @@
 <script lang="ts">
     import GalleryGrid from "$lib/components/GalleryGrid.svelte";
-    import { goto } from "$app/navigation";
     import type { Artwork } from "$lib/utils/content";
     export let data: {
         artworks: Artwork[];
@@ -10,7 +9,7 @@
     let selected: string = "";
 
     $: visible = selected
-        ? data.artworks.filter((a) => a.category === selected)
+        ? data.artworks.filter((a): boolean => a.category === selected)
         : data.artworks;
 
     function setCategory(cat?: string) {
