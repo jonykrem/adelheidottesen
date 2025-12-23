@@ -1,4 +1,4 @@
-export const prerender = 'auto';
+export const prerender = true;
 
 import type { LayoutLoad } from './$types';
 
