@@ -1,5 +1,6 @@
 <script lang="ts">
-    export let data: { page: { title: string; body: string } };
+    import { PortableText } from "@portabletext/svelte";
+    export let data: { page: { title: string; body: any } };
 </script>
 
 <svelte:head>
@@ -9,6 +10,6 @@
 <article>
     <h2 style="font-weight:400; margin-bottom:1rem;">{data.page.title}</h2>
     <div class="prose" style="max-width:70ch;">
-        {@html data.page.body}
+        <PortableText value={data.page.body} />
     </div>
 </article>

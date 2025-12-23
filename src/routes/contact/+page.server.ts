@@ -3,7 +3,7 @@ import { error } from "@sveltejs/kit";
 
 export async function load() {
     const page = await sanity.fetch(
-        `*[_type == "page" && slug.current == "about"][0]{
+        `*[_type == "page" && slug.current == "contact"][0]{
             title,
             body
         }`
