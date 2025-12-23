@@ -1,9 +1,8 @@
 import { sanity } from "$lib/sanity/client";
 
-export async function load({ url }) {
-    const category = url.searchParams.get('category');
-
-    const query = `*[_type == "artwork"${category ? ` && category == $category` : ''}] | order(year desc, title asc) {
+export async function load() {
+    const query = `*[_type == "artwork"]
+        | order(year desc, title asc) {
         title,
         "slug": slug.current,
         year,
@@ -15,12 +14,11 @@ export async function load({ url }) {
         description
     }`;
 
-    const artworks = await sanity.fetch(query, category ? { category } : {});
+    const artworks = await sanity.fetch(query);
     const categories = [...new Set(artworks.map((a: any) => a.category).filter(Boolean))];
 
     return {
         artworks,
-        categories,
-        category: category || undefined
+        categories
     };
 }
