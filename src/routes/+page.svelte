@@ -1,6 +1,8 @@
 <script lang="ts">
     import GalleryGrid from "$lib/components/GalleryGrid.svelte";
+    import PageHeader from "$lib/components/PageHeader.svelte";
     import type { Artwork } from "$lib/utils/content";
+    import Page from "./about/+page.svelte";
     export let data: { featured: Artwork[] };
 </script>
 
@@ -9,7 +11,7 @@
     <meta name="description" content="Featured artworks" />
 </svelte:head>
 
-<section>
-    <h2 style="font-weight:400; margin: 2rem 0 1rem;">Featured Works</h2>
+<section class="page">
+    <PageHeader title="Featured Works" />
     <GalleryGrid items={data.featured} />
 </section>

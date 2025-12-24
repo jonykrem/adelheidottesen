@@ -1,4 +1,5 @@
 <script lang="ts">
+    import PageHeader from "$lib/components/PageHeader.svelte";
     import { urlFor } from "$lib/sanity/image";
     import type { Artwork } from "$lib/utils/content";
 
@@ -15,9 +16,8 @@
 </svelte:head>
 
 <article>
-    <h2 style="font-weight:400; margin-bottom:0.5rem;">
-        {a.title}{a.year ? `, ${a.year}` : ""}
-    </h2>
+    <PageHeader title="{a.title}{a.year ? `, ${a.year}` : ''}" />
+
     <p style="color:#6b7280; margin-top:0;">
         {a.medium}{a.dimensions ? ` • ${a.dimensions}` : ""}
     </p>

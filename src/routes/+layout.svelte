@@ -6,9 +6,7 @@
 
 <div class="container">
     <header>
-        <h1 style="font-weight:500; letter-spacing:0.5px;">
-            {data?.siteTitle ?? "Artist Name"}
-        </h1>
+        <h1>{data?.siteTitle ?? "Artist Name"}</h1>
         <nav>
             <a
                 href="/"
@@ -63,6 +61,11 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-weight: 500;
+        letter-spacing: 0.5px;
     }
 
     /* Mobile-first header layout */

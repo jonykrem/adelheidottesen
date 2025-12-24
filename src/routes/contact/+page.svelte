@@ -1,4 +1,5 @@
 <script lang="ts">
+    import PageHeader from "$lib/components/PageHeader.svelte";
     import { PortableText } from "@portabletext/svelte";
     export let data: { page: { title: string; body: any } };
 </script>
@@ -8,8 +9,6 @@
 </svelte:head>
 
 <article>
-    <h2 style="font-weight:400; margin-bottom:1rem;">{data.page.title}</h2>
-    <div class="prose" style="max-width:70ch;">
-        <PortableText value={data.page.body} />
-    </div>
+    <PageHeader title={data.page.title} />
+    <PortableText value={data.page.body} />
 </article>
