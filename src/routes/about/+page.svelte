@@ -9,6 +9,6 @@
 </svelte:head>
 
 <article>
-    <PageHeader title={data.page.title} />
+    <PageHeader />
     <PortableText value={data.page.body} />
 </article>
