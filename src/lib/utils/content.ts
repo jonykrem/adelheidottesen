@@ -7,7 +7,6 @@ export type Artwork = {
     medium: string;
     dimensions: string;
     category: string;
-    featured?: boolean;
     images: any[];
     description?: string | null;
 };
@@ -25,7 +24,6 @@ export async function getAllArtworks(): Promise<Artwork[]> {
         medium,
         dimensions,
         category,
-        featured,
         images,
         description
     }`;
@@ -41,7 +39,6 @@ export async function getArtworkBySlug(slug: string): Promise<Artwork | null> {
         medium,
         dimensions,
         category,
-        featured,
         images,
         description
     }`;

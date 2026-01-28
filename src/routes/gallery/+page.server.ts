@@ -9,7 +9,6 @@ export async function load() {
         medium,
         dimensions,
         category,
-        featured,
         images,
         description
     }`;
