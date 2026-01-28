@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { ARTWORK_CATEGORIES } from "../../src/lib/categories";
 
 export default defineType({
     name: "artwork",
@@ -19,8 +20,15 @@ export default defineType({
             options: {
                 source: "title",
                 maxLength: 96,
+                slugify: (input: string) =>
+                    input
+                        .toLowerCase()
+                        .trim()
+                        .replace(/\s+/g, "-")
+                        .replace(/[^a-z0-9-]/g, ""),
             },
-            validation: (Rule) => Rule.required(),
+            readOnly: true,
+            hidden: true,
         }),
 
         defineField({
@@ -49,20 +57,9 @@ export default defineType({
             title: "Category",
             type: "string",
             options: {
-                list: [
-                    { title: "Painting", value: "painting" },
-                    { title: "Drawing", value: "drawing" },
-                    { title: "Mixed Media", value: "mixed-media" },
-                ],
+                list: [...ARTWORK_CATEGORIES],
             },
             validation: (Rule) => Rule.required(),
-        }),
-
-        defineField({
-            name: "featured",
-            title: "Featured",
-            type: "boolean",
-            initialValue: false,
         }),
 
         defineField({
@@ -75,6 +72,14 @@ export default defineType({
                     options: {
                         hotspot: true,
                     },
+                    fields: [
+                        {
+                            name: "caption",
+                            title: "Caption",
+                            type: "text",
+                            description: "Billedtekst (linjeskift bevares)",
+                        },
+                    ],
                 },
             ],
             validation: (Rule) => Rule.min(1),
