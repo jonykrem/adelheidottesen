@@ -1,18 +1,15 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import type { PageData } from "./$types";
-    export let data: PageData;
+    import type { LayoutData } from "./$types";
+    export let data: LayoutData;
 </script>
 
 <div class="container">
     <header>
-        <h1>{data?.siteTitle ?? "Artist Name"}</h1>
+        <h1>
+            <a href="/">{data?.siteTitle ?? "Artist Name"}</a>
+        </h1>
         <nav>
-            <a
-                href="/"
-                aria-current={$page.url.pathname === "/" ? "page" : undefined}
-                >Home</a
-            >
             <a
                 href="/gallery"
                 aria-current={$page.url.pathname.startsWith("/gallery")
@@ -68,12 +65,17 @@
         letter-spacing: 0.5px;
     }
 
+    h1 a {
+        color: inherit;
+        text-decoration: none;
+    }
+
     /* Mobile-first header layout */
     header {
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        margin-bottom: 2rem;
+        /* margin-bottom: 0.75rem; */
     }
 
     nav {
