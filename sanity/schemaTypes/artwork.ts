@@ -96,7 +96,15 @@ export default defineType({
         select: {
             title: "title",
             media: "images.0.asset",
-            subtitle: "year",
+            year: "year",
+            category: "category",
         },
-    },
+        prepare({ title, media, year, category }) {
+            return {
+                title,
+                media,
+                subtitle: `${year} · ${category}`,
+            };
+        },
+    }
 });
