@@ -1,9 +1,11 @@
 <script lang="ts">
-    export let title: string;
+    export let title: string | undefined = undefined;
 </script>
 
 <header class="page-header">
-    <h2 class="page-title">{title}</h2>
+    {#if title}
+        <h2 class="page-title">{title}</h2>
+    {/if}
     <div class="page-actions">
         <slot />
     </div>
