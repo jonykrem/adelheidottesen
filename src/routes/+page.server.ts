@@ -1,8 +1,6 @@
 import type { PageServerLoad } from './$types';
-import { getAllArtworks } from '$lib/utils/content';
+import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async () => {
-    const artworks = await getAllArtworks();
-    const featured = artworks.filter((a) => a.featured);
-    return { featured };
+    throw redirect(302, "/gallery");
 };
