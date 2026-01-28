@@ -24,19 +24,41 @@
 
     {#if a.images && a.images.length}
         {#each a.images as img}
-            <img
-                src={urlFor(img).width(1200).url()}
-                alt={a.title}
-                loading="lazy"
-                decoding="async"
-                style="display:block; width:100%; height:auto; margin: 1rem 0;"
-            />
+            <figure style="margin: 1.5rem 0;">
+                <img
+                    src={urlFor(img).width(1200).url()}
+                    alt={a.title}
+                    loading="lazy"
+                    decoding="async"
+                    style="display:block; width:100%; height:auto;"
+                />
+
+                {#if img.caption}
+                    <figcaption class="caption">
+                        {img.caption}
+                    </figcaption>
+                {/if}
+            </figure>
         {/each}
     {/if}
 
     {#if a.description}
-        <div class="prose" style="margin-top:1rem; max-width: 70ch;">
+        <div class="description">
             {@html a.description}
         </div>
     {/if}
 </article>
+
+<style>
+    .caption {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: #6b7280;
+        white-space: pre-line;
+    }
+
+    .description {
+        margin-top: 1rem;
+        white-space: pre-line;
+    }
+</style>
