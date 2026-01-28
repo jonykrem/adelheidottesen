@@ -75,7 +75,13 @@
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        /* margin-bottom: 0.75rem; */
+        margin-bottom: -0.5rem;
+    }
+
+    @media (max-width: 767px) {
+        header {
+            margin-bottom: 2rem;
+        }
     }
 
     nav {

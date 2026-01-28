@@ -27,9 +27,9 @@
 
 <section class="page">
     <PageHeader>
-        <label class="filter-label" for="filter"> Filter: </label>
         <select
             id="filter"
+            class="category-filter"
             bind:value={selected}
             on:change={(e) =>
                 setCategory(
@@ -45,8 +45,13 @@
 </section>
 
 <style>
-    .filter-label {
-        color: #6b7280;
+    .category-filter {
         font-size: 0.9rem;
+        color: var(--muted);
+        background: transparent;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        padding: 0.15rem 0.4rem;
+        line-height: 1.4;
     }
 </style>

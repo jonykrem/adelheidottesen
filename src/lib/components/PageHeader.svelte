@@ -15,8 +15,15 @@
     .page-header {
         display: flex;
         align-items: baseline;
-        justify-content: space-between;
+        justify-content: flex-end;
         margin-bottom: 2rem;
+    }
+
+    @media (max-width: 767px) {
+        .page-header {
+            margin-top: -1.75rem;
+            margin-bottom: 1rem;
+        }
     }
 
     .page-title {
@@ -28,5 +35,13 @@
         display: flex;
         align-items: baseline;
         gap: 0.75rem;
+    }
+
+    @media (max-width: 767px) {
+        .page-actions {
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
     }
 </style>
