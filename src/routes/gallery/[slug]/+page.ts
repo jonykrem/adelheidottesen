@@ -2,7 +2,7 @@ import { getAllArtworks } from "$lib/utils/content";
 
 export const prerender = true;
 
-export async function entries() {
+export const entries = async () => {
     const artworks = await getAllArtworks();
-    return artworks.map(a => ({ slug: a.slug }));
-}
+    return artworks.map((a) => ({ slug: a.slug }));
+};
