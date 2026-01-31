@@ -5,8 +5,8 @@
     "version": "0.1.0",
     "scripts": {
         "dev": "vite dev",
-        "build": "svelte-kit build",
-        "preview": "svelte-kit preview",
+        "build": "vite build",
+        "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check",
         "lint": "echo 'lint disabled'",
         "postinstall": "svelte-kit sync",
