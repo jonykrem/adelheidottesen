@@ -5,7 +5,7 @@
 </script>
 
 <div class="grid">
-    {#each items as item}
+    {#each items.filter((item) => item.slug) as item}
         <ArtworkCard {...item} />
     {/each}
 </div>
