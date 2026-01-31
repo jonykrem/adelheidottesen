@@ -1,7 +1,7 @@
 import { getAllArtworks, getArtworkBySlug } from "$lib/utils/content";
 import { error } from "@sveltejs/kit";
 
-export const prerender = true;
+export const prerender = false;
 
 export const entries = async () => {
     const artworks = await getAllArtworks();
