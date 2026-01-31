@@ -20,15 +20,8 @@ export default defineType({
             options: {
                 source: "title",
                 maxLength: 96,
-                slugify: (input: string) =>
-                    input
-                        .toLowerCase()
-                        .trim()
-                        .replace(/\s+/g, "-")
-                        .replace(/[^a-z0-9-]/g, ""),
             },
-            readOnly: true,
-            hidden: true,
+            validation: (Rule) => Rule.required(),
         }),
 
         defineField({
