@@ -3,7 +3,16 @@ import { error } from "@sveltejs/kit";
 
 export const entries = async () => {
     const artworks = await getAllArtworks();
-    return artworks.map((a) => ({ slug: a.slug }));
+
+    const bad = artworks.filter(
+        (a) => !a.slug || typeof a.slug !== "string"
+    );
+
+    console.log("BAD SLUGS:", bad);
+
+    return artworks
+        .filter((a) => a.slug && typeof a.slug === "string")
+        .map((a) => ({ slug: a.slug }));
 };
 
 export async function load({ params }) {
