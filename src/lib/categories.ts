@@ -1,7 +1,7 @@
 // src/lib/categories.ts
 export const ARTWORK_CATEGORIES = [
     { title: "Paintings", value: "paintings" },
-    { title: "Graphics", value: "graphics" },
+    { title: "Printmaking", value: "printmaking" },
 ] as const;
 
 export type ArtworkCategory = typeof ARTWORK_CATEGORIES[number]["value"];
