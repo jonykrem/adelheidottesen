@@ -2,7 +2,7 @@ import { sanity } from "$lib/sanity/client";
 
 export async function load() {
     const query = `*[_type == "artwork"]
-        | order(year desc, title asc) {
+        | order(year desc, orderRank asc, title asc) {
         title,
         "slug": slug.current,
         year,
