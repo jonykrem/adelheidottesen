@@ -10,7 +10,7 @@ export default defineConfig({
   title: 'adelheidottesen',
 
   projectId: 'vaix14a0',
-  dataset: 'production',
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [
     structureTool({
