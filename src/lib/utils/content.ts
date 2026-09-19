@@ -17,7 +17,7 @@ export type PageContent = {
 };
 
 export async function getAllArtworks(): Promise<Artwork[]> {
-    const query = `*[_type == "artwork"] | order(year desc, title asc) {
+    const query = `*[_type == "artwork"] | order(year desc, orderRank asc, title asc) {
         title,
         "slug": slug.current,
         year,

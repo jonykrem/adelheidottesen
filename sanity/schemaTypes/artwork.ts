@@ -1,10 +1,12 @@
 import { defineType, defineField } from "sanity";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 import { ARTWORK_CATEGORIES } from "../../src/lib/categories";
 
 export default defineType({
     name: "artwork",
     title: "Artwork",
     type: "document",
+    orderings: [orderRankOrdering],
     fields: [
         defineField({
             name: "title",
@@ -31,6 +33,8 @@ export default defineType({
             validation: (Rule) =>
                 Rule.required().min(1900).max(new Date().getFullYear()),
         }),
+
+        orderRankField({ type: "artwork", hidden: true }),
 
         defineField({
             name: "medium",
