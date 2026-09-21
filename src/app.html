@@ -8,6 +8,12 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Adelheid Ottesen" />
     <meta property="og:description" content="Selected works, bio, CV, contact." />
+    <script>
+        (() => {
+            const theme = localStorage.getItem("theme");
+            document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
+        })();
+    </script>
     %sveltekit.head%
 </head>
 
