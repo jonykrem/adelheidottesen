@@ -1,10 +1,10 @@
 # Artist Portfolio (SvelteKit + Static + Decap CMS)
 
-Production-ready static portfolio built with SvelteKit, pre-rendered for Cloudflare Pages, and edited via Decap CMS.
+Production-ready portfolio built with SvelteKit, rendered on Cloudflare Pages, and edited via Sanity Studio.
 
 ## Tech Stack
 - SvelteKit (TypeScript)
-- `@sveltejs/adapter-static`
+- `@sveltejs/adapter-cloudflare`
 - Markdown + frontmatter
 - Decap CMS (GitHub backend)
 - Cloudflare Pages deployment
@@ -65,9 +65,13 @@ Note: For a fully static site on Cloudflare Pages, Decap CMS GitHub backend requ
 2. In Cloudflare Pages, create a new project from your repo.
 3. Build settings:
    - Build command: `npm run build`
-   - Output directory: `build`
+   - Output directory: `.svelte-kit/cloudflare`
    - Node version: latest LTS
-4. Environment variables (optional): none required for static build.
+4. Runtime settings:
+   - Add the `nodejs_als` compatibility flag under Cloudflare Pages Runtime settings.
+5. Environment variables:
+   - `VITE_SANITY_PROJECT_ID=vaix14a0`
+   - `VITE_SANITY_DATASET=production`
 
 ## Image Optimization
 - Images are lazy-loaded (`loading="lazy"`, `decoding="async"`).
@@ -88,5 +92,5 @@ Note: For a fully static site on Cloudflare Pages, Decap CMS GitHub backend requ
   - `/contact` — email + social links
 
 ## Notes
-- Everything is pre-rendered via `adapter-static` (see `svelte.config.js`).
+- Pages are rendered by Cloudflare via `adapter-cloudflare` (see `svelte.config.js`).
 - CMS writes Markdown files to the repo; images live under `static/images/artworks`.
