@@ -14,7 +14,7 @@
     function categoryFromUrl(value: string | null): ArtworkCategory {
         return data.categories.includes(value as ArtworkCategory)
             ? (value as ArtworkCategory)
-            : data.categories[0] ?? "paintings";
+            : (data.categories[0] ?? "paintings");
     }
 
     $: selected = categoryFromUrl($page.url.searchParams.get("category"));

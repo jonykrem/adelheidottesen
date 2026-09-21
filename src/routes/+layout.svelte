@@ -49,7 +49,9 @@
             <button
                 class="theme-toggle"
                 type="button"
-                aria-label={theme === "dark" ? "Use light mode" : "Use dark mode"}
+                aria-label={theme === "dark"
+                    ? "Use light mode"
+                    : "Use dark mode"}
                 aria-pressed={theme === "dark"}
                 title={theme === "dark" ? "Use light mode" : "Use dark mode"}
                 onclick={toggleTheme}

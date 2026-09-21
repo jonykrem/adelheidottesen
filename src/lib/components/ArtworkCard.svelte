@@ -22,9 +22,7 @@
             {#if imageUrl}
                 <ResponsiveImage src={imageUrl} alt={title} />
             {/if}
-            <figcaption
-                class="caption"
-            >
+            <figcaption class="caption">
                 {title}{year ? `, ${year}` : ""}
             </figcaption>
         </figure>
