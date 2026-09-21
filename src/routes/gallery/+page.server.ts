@@ -1,4 +1,5 @@
 import { sanity } from "$lib/sanity/client";
+import { ARTWORK_CATEGORIES } from "$lib/categories";
 
 export async function load() {
     const query = `*[_type == "artwork"]
@@ -14,10 +15,16 @@ export async function load() {
     }`;
 
     const artworks = await sanity.fetch(query);
-    const categories = [...new Set(artworks.map((a: any) => a.category).filter(Boolean))];
+    const categories = ARTWORK_CATEGORIES
+        .filter((category) =>
+            artworks.some((artwork: { category?: string }) =>
+                artwork.category === category.value,
+            ),
+        )
+        .map((category) => category.value);
 
     return {
         artworks,
-        categories
+        categories,
     };
 }

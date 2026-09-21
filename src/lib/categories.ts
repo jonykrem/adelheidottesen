@@ -2,6 +2,7 @@
 export const ARTWORK_CATEGORIES = [
     { title: "Paintings", value: "paintings" },
     { title: "Printmaking", value: "printmaking" },
+    { title: "Other", value: "other" },
 ] as const;
 
 export type ArtworkCategory = typeof ARTWORK_CATEGORIES[number]["value"];

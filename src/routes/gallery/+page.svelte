@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
+    import { page } from "$app/stores";
     import GalleryGrid from "$lib/components/GalleryGrid.svelte";
     import PageHeader from "$lib/components/PageHeader.svelte";
     import { categoryTitle } from "$lib/categories";
@@ -9,14 +11,20 @@
         categories: ArtworkCategory[];
     };
 
-    let selected: ArtworkCategory = "paintings";
+    function categoryFromUrl(value: string | null): ArtworkCategory {
+        return data.categories.includes(value as ArtworkCategory)
+            ? (value as ArtworkCategory)
+            : data.categories[0] ?? "paintings";
+    }
+
+    $: selected = categoryFromUrl($page.url.searchParams.get("category"));
 
     $: visible = selected
         ? data.artworks.filter((a): boolean => a.category === selected)
         : data.artworks;
 
     function setCategory(cat: ArtworkCategory) {
-        selected = cat;
+        goto(`/gallery?category=${encodeURIComponent(cat)}`);
     }
 </script>
 
@@ -26,7 +34,7 @@
 </svelte:head>
 
 <section class="page">
-    <PageHeader>
+    <PageHeader showActions>
         <select
             id="filter"
             class="category-filter"
@@ -49,7 +57,7 @@
         font-size: 0.9rem;
         color: var(--muted);
         background: transparent;
-        border: 1px solid #d1d5db;
+        border: 1px solid var(--border);
         border-radius: 4px;
         padding: 0.15rem 0.4rem;
         line-height: 1.4;
