@@ -5,6 +5,7 @@ pnpm-lock.yaml
 
 # SvelteKit / Vite
 .svelte-kit/
+.wrangler/
 .build/
 build/
 dist/
