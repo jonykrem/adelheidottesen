@@ -23,10 +23,18 @@
                 <ResponsiveImage src={imageUrl} alt={title} />
             {/if}
             <figcaption
-                style="margin-top:0.5rem; font-size:0.9rem; color:#4b5563;"
+                class="caption"
             >
                 {title}{year ? `, ${year}` : ""}
             </figcaption>
         </figure>
     </a>
 {/if}
+
+<style>
+    .caption {
+        margin-top: 0.5rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+    }
+</style>
