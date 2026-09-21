@@ -23,13 +23,8 @@
 
     img {
         display: block;
-        width: min(100%, 520px);
+        width: min(300px, 80vw);
+        margin-inline: 0;
         height: auto;
-    }
-
-    @media (max-width: 600px) {
-        img {
-            width: 100%;
-        }
     }
 </style>
