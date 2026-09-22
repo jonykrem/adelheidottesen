@@ -6,6 +6,17 @@ export default defineType({
     type: "array",
     of: [
         { type: "block" },
-        { type: "image", options: { hotspot: true } },
+        {
+            type: "image",
+            options: { hotspot: true },
+            fields: [
+                {
+                    name: "caption",
+                    title: "Caption / credit",
+                    type: "text",
+                    description: "Caption or image credit shown below the image",
+                },
+            ],
+        },
     ],
 });
